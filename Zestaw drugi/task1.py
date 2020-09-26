@@ -42,3 +42,13 @@ df['Hobbyist'] = df['Hobbyist'].map(map_function)
 df = df[(df["Gender"] == "Man") | (df["Gender"] == "Woman")]
 df = pd.get_dummies(df, columns=["Gender"])
 print(df)
+
+
+#Task3
+#removing outliers
+Q1 = df.quantile(0.25)
+Q3 = df.quantile(0.75)
+IQR = Q3 - Q1
+
+df = df[~((df < (Q1 - 1.5 * IQR)) | (df > (Q3 + 1.5 * IQR))).any(axis=1)]
+print(df)
