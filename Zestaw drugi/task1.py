@@ -71,9 +71,5 @@ reg2.fit(df1[["Age", "YearsCode"]], df1["CodeRevHrs"])
 print("MSE:", mean_squared_error(df1["CodeRevHrs"], reg2.predict(df1[["Age", "YearsCode"]])))
 
 reg3 = linear_model.LinearRegression()
-reg3.fit(df1[["Age", "CodeRevHrs", "Gender_Man", "Gender_Woman"]], df1["YearsCode"])
-print("MSE:", mean_squared_error(df1["YearsCode"], reg3.predict(df1[["Age", "CodeRevHrs", "Gender_Man", "Gender_Woman"]])))
-
-
-
-
+reg3.fit(df1[["Age", "CodeRevHrs", "Hobbyist", "Gender_Man", "Gender_Woman"]], df1["YearsCode"])
+print("MSE:", mean_squared_error(df1["YearsCode"], reg3.predict(df1[["Age", "CodeRevHrs", "Hobbyist", "Gender_Man", "Gender_Woman"]])))
